@@ -1,0 +1,44 @@
+<BasicDropdown as |dd|>
+  <dd.Trigger class='trigger-bootstrap-feel'>
+      {{this.monthYearLable}}
+    <span class='caret down'></span></dd.Trigger>
+
+  <dd.Content class='content-bootstrap-feel'>
+    <div class='picker-wrapper'>
+      <div class='flex-child'>
+        <div class='year-title'>
+            <img 
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAY0lEQVRIie2UMQqAMBAEJ2Lhs3yR+hTt/I4f89JEBBHiQa4QdiCkCMzkigSEeCGVFSbfgD0icskNOIExUj5J3kzeVc7tEWxOAlbuKWZFahH3Q+sdAQOWsg/A4bzgZ0I/O/FDMq2DH/ZtWe3XAAAAAElFTkSuQmCC"
+            onclick={{action 'previousYearSelection'}}
+            />
+            {{this.previousYear}}
+        </div>
+        <div class='year-cal'>
+          {{#each this.months as |calendar|}}
+                <div class='month-card {{month-range calendar this.previousYear this.startMonth this.endMonth this.startYear this.endYear }}'onclick={{action "onSelectHandler" calendar this.previousYear}}>{{calendar}}</div>
+            {{/each}}
+        </div>
+      </div>
+      <div class='flex-child'>
+        <div class='year-title'>{{this.currentYear}}
+            <div class="month-left-icon">
+                <input type="image"
+                class="month-arrow"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAlklEQVRIie3UsQ3CUAyE4U/MQKCCYUCipSFMEwYKFYvAFCAhGCIUoUieoLMrOMmddb98z8/8FaQlLrhhnQFo0L3rgSoasBkAOhyjAdAWkDoaMMV9AHhiHg3ZGk9xigbQ558aVaXfpNStqo2nOHxrnESTI5QeUeoj7wvzNtL800ebRQLKaHaR5unHLv1cL3DGFato8x/XCwFMPpf5ayxcAAAAAElFTkSuQmCC"
+                onclick={{action "nextYearSelection"}}
+                />
+            </div>
+        </div>
+        <div class='year-cal'>
+            {{#each this.months as |calendar|}}
+                <div class='month-card {{month-range calendar this.currentYear this.startMonth this.endMonth this.startYear this.endYear }}'onclick={{action "onSelectHandler" calendar this.currentYear}}>{{calendar}}</div>
+            {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="wrapper-button">
+      <button class="cancel-button" type="button" onclick={{action "monthCancelation" dd}}>Cancel</button>
+      <button class="apply-button" type="button" {{on "click" (action "applyMonthSelection" dd)}}>Apply</button>
+    </div>
+  </dd.Content>
+</BasicDropdown>
