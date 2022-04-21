@@ -145,3 +145,6 @@
 .selected-month:hover{
   background-color: #3eaaaf;
 }
+.hidden{
+  visibility: hidden;
+}

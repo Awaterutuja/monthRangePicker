@@ -21,8 +21,8 @@
       </div>
       <div class='flex-child'>
         <div class='year-title'>{{this.currentYear}}
-            <div class="month-left-icon">
-                <input type="image"
+            <div class="month-left-icon {{year-access this.currentYear}}">
+                <img
                 class="month-arrow"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAlklEQVRIie3UsQ3CUAyE4U/MQKCCYUCipSFMEwYKFYvAFCAhGCIUoUieoLMrOMmddb98z8/8FaQlLrhhnQFo0L3rgSoasBkAOhyjAdAWkDoaMMV9AHhiHg3ZGk9xigbQ558aVaXfpNStqo2nOHxrnESTI5QeUeoj7wvzNtL800ebRQLKaHaR5unHLv1cL3DGFato8x/XCwFMPpf5ayxcAAAAAElFTkSuQmCC"
                 onclick={{action "nextYearSelection"}}

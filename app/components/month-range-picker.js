@@ -20,6 +20,7 @@ export default Component.extend({
   endMonth: undefined,
   startYear: undefined,
   endYear: undefined,
+  isnextYearselected: computed.and('currentMonth', 'currentYear'),
   currentYear: new Date().getUTCFullYear(),
   previousYear: new Date().getUTCFullYear() - 1,
   currentMonth: new Date().toLocaleString('default', { month: 'short' }),
